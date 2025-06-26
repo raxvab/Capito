@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Extract Caption</title>
+    <!-- ADD VIEWPORT META TAG FOR RESPONSIVENESS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         html, body {
             height: 100%;
@@ -55,6 +57,10 @@
             background: #222;
             color: #fff;
             cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:active {
+            background: #444;
         }
         #resultBox {
             width: 100%;
@@ -70,13 +76,54 @@
             white-space: pre-wrap;
             box-sizing: border-box;
         }
-        @media (max-width: 600px) {
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+
+        /* For tablets (portrait & landscape) */
+        @media (max-width: 900px) {
             .container {
-                margin: 10px;
-                padding: 10px 4px;
+                max-width: 95vw;
+                margin: 20px;
+                padding: 24px 8px;
             }
             h1 {
-                font-size: 1.5em;
+                font-size: 2em;
+            }
+            #resultBox {
+                min-height: 120px;
+                font-size: 1em;
+            }
+        }
+
+        /* For mobile phones */
+        @media (max-width: 600px) {
+            .container {
+                margin: 6px;
+                padding: 10px 2px;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            }
+            h1 {
+                font-size: 1.2em;
+                margin-bottom: 18px;
+            }
+            .input-row {
+                flex-direction: column;
+                gap: 8px;
+            }
+            input[type="text"] {
+                font-size: 1em;
+                padding: 8px;
+            }
+            button {
+                width: 100%;
+                font-size: 1em;
+                padding: 10px 0;
+            }
+            #resultBox {
+                min-height: 80px;
+                font-size: 0.95em;
+                padding: 10px;
             }
         }
     </style>
