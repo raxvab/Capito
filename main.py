@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import requests
 from bs4 import BeautifulSoup
+import os
 
 app = Flask(__name__)
 
@@ -52,4 +53,6 @@ def extract():
 #     app.run(debug=True)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)  # required by Render
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
+
